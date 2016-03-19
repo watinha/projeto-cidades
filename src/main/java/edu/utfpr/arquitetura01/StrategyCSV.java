@@ -9,19 +9,20 @@ import java.util.List;
 
 public class StrategyCSV extends StrategyCidade {
 
+    public StrategyCSV (String filename) throws IOException {
+        super(filename);
+    }
+
     public List<String> ler() {
-        BufferedReader in_csv;
         try {
-            in_csv = new BufferedReader(
-                    new FileReader("data/cidades.csv"));
-            String linha2 = in_csv.readLine();
+            String linha2 = in.readLine();
             List<String> lista = new ArrayList<String> ();
             while (linha2 != null) {
                 lista.add(linha2.substring(
                             0, linha2.indexOf(",")));
-                linha2 = in_csv.readLine();
+                linha2 = in.readLine();
             }
-            in_csv.close();
+            in.close();
             return lista;
         } catch (IOException e) {
             e.printStackTrace();

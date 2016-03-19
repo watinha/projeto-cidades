@@ -14,17 +14,15 @@ public class App {
 
         switch (opcao) {
             case "txt":
-                strategy = new StrategyTXT();
+                strategy = new StrategyTXT("data/cidades.txt");
                 break;
             case "csv":
-                strategy = new StrategyCSV();
+                strategy = new StrategyCSV("data/cidades.csv");
                 break;
         }
 
-        List <String> lista = strategy.ler();
-        for (String cidade : lista) {
-            System.out.println(cidade);
-        }
+        ServicoCidades servico = new ServicoCidades(strategy);
+        servico.buscar(opcao);
         scan.close();
     }
 }

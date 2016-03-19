@@ -9,11 +9,12 @@ import java.util.List;
 
 public class StrategyTXT extends StrategyCidade {
 
+    public StrategyTXT (String filename) throws IOException {
+        super(filename);
+    }
+
     public List<String> ler() {
-        BufferedReader in;
         try {
-            in = new BufferedReader(
-                    new FileReader("data/cidades.txt"));
             String linha = in.readLine();
             List <String> lista = new ArrayList <String> ();
             while (linha != null) {
